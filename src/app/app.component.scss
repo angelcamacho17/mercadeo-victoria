@@ -1,0 +1,771 @@
+// Modern, Minimalist, High-End Styling
+
+// Variables
+$primary-color: #000000;
+$accent-color: #2563eb;
+$accent-hover: #1d4ed8;
+$text-primary: #0f172a;
+$text-secondary: #475569;
+$text-light: #64748b;
+$bg-light: #f8fafc;
+$bg-white: #ffffff;
+$border-color: #e2e8f0;
+$success-color: #10b981;
+$warning-color: #f59e0b;
+
+// Typography
+$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+$font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// Spacing
+$container-max: 1200px;
+$section-padding: 100px;
+$section-padding-mobile: 60px;
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Global Styles
+:host {
+  display: block;
+  font-family: $font-primary;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Header
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border-color;
+  z-index: 1000;
+  animation: fadeInUp 0.6s ease;
+}
+
+.nav-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: $font-display;
+  letter-spacing: -0.5px;
+  color: $primary-color;
+}
+
+// VSL Container
+.vsl-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 30px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.vsl-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.vsl-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Buttons
+button {
+  font-family: $font-primary;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.cta-button-small {
+  padding: 12px 28px;
+  background: $primary-color;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+
+  &:hover {
+    background: #333333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.cta-button-primary {
+  padding: 18px 40px;
+  background: $accent-color;
+  color: white;
+  border-radius: 12px;
+  font-size: 18px;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+
+  &:hover {
+    background: $accent-hover;
+    box-shadow: 0 6px 30px rgba(37, 99, 235, 0.4);
+  }
+}
+
+.cta-button-large {
+  padding: 22px 50px;
+  background: $accent-color;
+  color: white;
+  border-radius: 12px;
+  font-size: 20px;
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: $accent-hover;
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+  }
+}
+
+// Hero Section
+.hero-section {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $section-padding 30px;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-text {
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+  font-family: $font-display;
+  letter-spacing: -2px;
+  color: $primary-color;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: $text-secondary;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+}
+
+.hero-image {
+  animation: fadeInUp 1.4s ease;
+}
+
+.image-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    padding: 40px;
+    text-align: center;
+
+    svg {
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+  }
+}
+
+.scroll-indicator {
+  text-align: center;
+  margin-top: 60px;
+  animation: bounce 2s infinite;
+
+  svg {
+    color: $text-light;
+  }
+}
+
+// CTA Sections
+.cta-section {
+  padding: $section-padding 30px;
+  text-align: center;
+}
+
+.primary-cta {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+
+  .cta-title, .cta-description {
+    color: white;
+  }
+}
+
+.secondary-cta {
+  background: $bg-light;
+}
+
+.final-cta {
+  background: $primary-color;
+  color: white;
+
+  .cta-title, .cta-description {
+    color: white;
+  }
+
+  .cta-button-large {
+    background: white;
+    color: $primary-color;
+
+    &:hover {
+      background: $bg-light;
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease;
+}
+
+.cta-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  font-family: $font-display;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.cta-description {
+  font-size: 20px;
+  margin: 0 0 40px 0;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  margin-bottom: 40px;
+}
+
+.cta-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 24px;
+}
+
+.price-new {
+  color: white;
+}
+
+.price-note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// Steps Section
+.steps-section {
+  padding: $section-padding 30px;
+  background: $bg-white;
+}
+
+.steps-container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 16px 0;
+  font-family: $font-display;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 20px;
+  text-align: center;
+  color: $text-secondary;
+  margin: 0 0 60px 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid $border-color;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-color: $accent-color;
+  }
+}
+
+.card-number {
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+  background: $accent-color;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.card-icon {
+  margin-bottom: 24px;
+  color: $accent-color;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  font-family: $font-display;
+  letter-spacing: -0.5px;
+}
+
+.card-description {
+  color: $text-secondary;
+  margin: 0 0 24px 0;
+  font-size: 16px;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 12px 0;
+    color: $text-primary;
+    font-size: 15px;
+    border-bottom: 1px solid $border-color;
+    position: relative;
+    padding-left: 28px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      color: $success-color;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+}
+
+// Testimonials Section
+.testimonials-section {
+  padding: $section-padding 30px;
+  background: $bg-light;
+}
+
+.testimonials-container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.testimonial {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+
+  svg {
+    color: $warning-color;
+  }
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: $text-primary;
+  margin: 0 0 24px 0;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.author-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, $accent-color, $accent-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: $text-primary;
+  margin-bottom: 4px;
+}
+
+.author-role {
+  font-size: 14px;
+  color: $text-light;
+}
+
+.testimonial-result {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(37, 99, 235, 0.1);
+  color: $accent-color;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+// Footer
+.footer {
+  background: $primary-color;
+  color: white;
+  padding: 60px 30px 30px;
+}
+
+.footer-content {
+  max-width: $container-max;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+}
+
+.footer-brand {
+  .logo {
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.footer-bottom {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-title {
+    font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  $section-padding: $section-padding-mobile;
+
+  .hero-section,
+  .cta-section,
+  .steps-section,
+  .testimonials-section {
+    padding: $section-padding-mobile 20px;
+  }
+
+  .nav-container {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .cta-title {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .cta-button-small {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .cta-button-primary {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+
+  .cta-button-large {
+    padding: 18px 36px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .trust-badges {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 32px 24px;
+  }
+
+  .testimonial {
+    padding: 24px;
+  }
+
+  .vsl-container {
+    padding: 0 20px;
+  }
+}
