@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { WhatsAppService } from './services/whatsapp.service';
 
 interface Step {
   title: string;
@@ -21,7 +23,7 @@ interface Testimonial {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -128,9 +130,25 @@ export class AppComponent {
     }
   ];
 
-  constructor(private sanitizer: DomSanitizer) {
+  // WhatsApp Form State
+  phoneNumber: string = '';
+  isSubmitting: boolean = false;
+  showSuccessMessage: boolean = false;
+  showErrorMessage: boolean = false;
+  errorMessage: string = '';
+
+  constructor(
+    private sanitizer: DomSanitizer,
+    private whatsappService: WhatsAppService
+  ) {
     // When you have the video URL, uncomment and update this:
     // this.setVideoUrl('YOUR_VIDEO_URL_HERE');
+  }
+
+  get isPhoneValid(): boolean {
+    // Simple validation: must start with + and have at least 10 digits
+    const phoneRegex = /^\+\d{10,}$/;
+    return phoneRegex.test(this.phoneNumber.replace(/\s/g, ''));
   }
 
   setVideoUrl(url: string): void {
@@ -150,5 +168,46 @@ export class AppComponent {
     // Add your purchase/checkout URL here
     // window.location.href = 'YOUR_CHECKOUT_URL';
     alert('Funcionalidad de compra - Agrega tu URL de checkout aquí');
+  }
+
+  sendWhatsAppMessage(): void {
+    if (!this.isPhoneValid || this.isSubmitting) {
+      return;
+    }
+
+    // Reset messages
+    this.showSuccessMessage = false;
+    this.showErrorMessage = false;
+    this.errorMessage = '';
+
+    // Set loading state
+    this.isSubmitting = true;
+
+    // Clean phone number (remove spaces)
+    const cleanPhone = this.phoneNumber.replace(/\s/g, '');
+
+    // Call the service
+    this.whatsappService.sendWhatsAppMessage(cleanPhone).subscribe({
+      next: (response) => {
+        this.isSubmitting = false;
+        this.showSuccessMessage = true;
+        this.phoneNumber = ''; // Clear the form
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 5000);
+      },
+      error: (error) => {
+        this.isSubmitting = false;
+        this.showErrorMessage = true;
+        this.errorMessage = error.message || 'Ocurrió un error al enviar el mensaje';
+
+        // Auto-hide error message after 7 seconds
+        setTimeout(() => {
+          this.showErrorMessage = false;
+        }, 7000);
+      }
+    });
   }
 }
