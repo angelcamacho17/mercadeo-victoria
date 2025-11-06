@@ -83,72 +83,64 @@ export class AppComponent {
     { name: 'Pedro', url: 'https://youtube.com/shorts/auT9F9M0SlY', embedUrl: null },
     { name: 'Jessica', url: 'https://youtube.com/shorts/glo8qukZNiE', embedUrl: null },
     { name: 'Daniel', url: 'https://youtube.com/shorts/-NWfrg1mGwU', embedUrl: null },
-    { name: 'Gaby', url: 'https://youtube.com/shorts/OkD60iebHPg', embedUrl: null },
-    { name: 'Cami', url: 'https://youtube.com/shorts/OwxBIiQzap4', embedUrl: null },
-    { name: 'Karelvis', url: 'https://youtube.com/shorts/ZzYhZzwM1E8', embedUrl: null },
-    { name: 'Ana Victoria', url: 'https://youtube.com/shorts/GJLU-0Md0v8', embedUrl: null },
-    { name: 'Isleyer', url: 'https://youtube.com/shorts/Pq20yR-H59M', embedUrl: null },
-    { name: 'Angel Chacon', url: 'https://youtube.com/shorts/IaFQVbCHq2Q', embedUrl: null },
-    { name: 'Miriangelis', url: 'https://youtube.com/shorts/_o4a9g9H8fg', embedUrl: null },
-    { name: 'Jessica Pereira', url: 'https://youtube.com/shorts/3CW8sdcNlIQ', embedUrl: null },
-    { name: 'Gabriela Martinez', url: 'https://youtube.com/shorts/aHWAGX3foTw', embedUrl: null }
+    { name: 'Gabriela', url: 'https://youtube.com/shorts/aHWAGX3foTw', embedUrl: null }
   ];
 
   testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: 'María González',
-      role: 'Coach de Negocios',
-      text: 'En solo 3 meses pasé de tener 500 seguidores a más de 15,000 y cerré mi primer mes de $12K. Este curso cambió completamente mi forma de ver las redes sociales.',
-      result: '✨ De $0 a $12K/mes',
-      initials: 'MG',
-      imageExists: true
-    },
-    {
-      id: 2,
-      name: 'Carlos Ramírez',
-      role: 'Consultor de Marketing',
-      text: 'Probé con anuncios pagados por años sin resultados. Con estas estrategias orgánicas generé más leads en 2 meses que en todo el año anterior. Increíble.',
-      result: '🚀 300% más leads',
-      initials: 'CR',
-      imageExists: true
-    },
-    {
-      id: 3,
-      name: 'Ana Martínez',
-      role: 'Emprendedora Digital',
-      text: 'Me sentía perdida en redes sociales. Este sistema me dio claridad total. Ahora tengo un negocio rentable y una comunidad leal que me compra constantemente.',
-      result: '💰 $8.5K primer mes',
-      initials: 'AM',
-      imageExists: true
-    },
-    {
-      id: 4,
-      name: 'Roberto Silva',
-      role: 'Coach de Ventas',
-      text: 'Lo mejor no es solo el contenido del curso, sino la mentalidad que desarrollas. Ahora vendo todos los días desde Instagram sin sentirme invasivo. Es oro puro.',
-      result: '⭐ 45 ventas en 60 días',
-      initials: 'RS',
-      imageExists: true
-    },
-    {
-      id: 5,
-      name: 'Laura Fernández',
-      role: 'Consultora de Negocios',
-      text: 'Invertí en varios cursos antes, pero este es diferente. Es práctico, directo al punto y con estrategias que funcionan HOY. Recuperé mi inversión en 2 semanas.',
-      result: '🎯 ROI en 14 días',
-      initials: 'LF',
-      imageExists: true
-    },
-    {
-      id: 6,
-      name: 'Diego Morales',
-      role: 'Mentor de Emprendedores',
-      text: 'Pasé de tener miedo a vender en redes a cerrar clientes premium de forma orgánica. El módulo de conexión auténtica vale por sí solo todo el precio del curso.',
-      result: '💎 3 clientes premium/mes',
-      initials: 'DM',
-      imageExists: true
-    }
+    // {
+    //   id: 1,
+    //   name: 'María González',
+    //   role: 'Coach de Negocios',
+    //   text: 'En solo 3 meses pasé de tener 500 seguidores a más de 15,000 y cerré mi primer mes de $12K. Este curso cambió completamente mi forma de ver las redes sociales.',
+    //   result: '✨ De $0 a $12K/mes',
+    //   initials: 'MG',
+    //   imageExists: true
+    // },
+    // {
+    //   id: 2,
+    //   name: 'Carlos Ramírez',
+    //   role: 'Consultor de Marketing',
+    //   text: 'Probé con anuncios pagados por años sin resultados. Con estas estrategias orgánicas generé más leads en 2 meses que en todo el año anterior. Increíble.',
+    //   result: '🚀 300% más leads',
+    //   initials: 'CR',
+    //   imageExists: true
+    // },
+    // {
+    //   id: 3,
+    //   name: 'Ana Martínez',
+    //   role: 'Emprendedora Digital',
+    //   text: 'Me sentía perdida en redes sociales. Este sistema me dio claridad total. Ahora tengo un negocio rentable y una comunidad leal que me compra constantemente.',
+    //   result: '💰 $8.5K primer mes',
+    //   initials: 'AM',
+    //   imageExists: true
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Roberto Silva',
+    //   role: 'Coach de Ventas',
+    //   text: 'Lo mejor no es solo el contenido del curso, sino la mentalidad que desarrollas. Ahora vendo todos los días desde Instagram sin sentirme invasivo. Es oro puro.',
+    //   result: '⭐ 45 ventas en 60 días',
+    //   initials: 'RS',
+    //   imageExists: true
+    // },
+    // {
+    //   id: 5,
+    //   name: 'Laura Fernández',
+    //   role: 'Consultora de Negocios',
+    //   text: 'Invertí en varios cursos antes, pero este es diferente. Es práctico, directo al punto y con estrategias que funcionan HOY. Recuperé mi inversión en 2 semanas.',
+    //   result: '🎯 ROI en 14 días',
+    //   initials: 'LF',
+    //   imageExists: true
+    // },
+    // {
+    //   id: 6,
+    //   name: 'Diego Morales',
+    //   role: 'Mentor de Emprendedores',
+    //   text: 'Pasé de tener miedo a vender en redes a cerrar clientes premium de forma orgánica. El módulo de conexión auténtica vale por sí solo todo el precio del curso.',
+    //   result: '💎 3 clientes premium/mes',
+    //   initials: 'DM',
+    //   imageExists: true
+    // }
   ];
 
   // WhatsApp Form State
