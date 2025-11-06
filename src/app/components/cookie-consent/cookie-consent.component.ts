@@ -26,6 +26,9 @@ export class CookieConsentComponent implements OnInit {
       setTimeout(() => {
         this.showBanner = true;
       }, 1000);
+    } else if (consent === 'accepted') {
+      // If already accepted, load Clarity
+      this.loadClarity();
     }
   }
 
@@ -33,12 +36,31 @@ export class CookieConsentComponent implements OnInit {
     localStorage.setItem('cookie_consent', 'accepted');
     this.showBanner = false;
 
-    // Reload page to load Clarity script
-    window.location.reload();
+    // Load Clarity script dynamically
+    this.loadClarity();
   }
 
   rejectCookies(): void {
     localStorage.setItem('cookie_consent', 'rejected');
     this.showBanner = false;
+  }
+
+  private loadClarity(): void {
+    // Check if Clarity is already loaded
+    if (window.clarity) {
+      return;
+    }
+
+    // Load Microsoft Clarity script
+    (function(c: any, l: any, a: string, r: string, i: string, t: any, y: any) {
+      c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "u1z54keqlr");
+
+    console.log('Microsoft Clarity loaded');
   }
 }
