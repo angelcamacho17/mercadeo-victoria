@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { WhatsAppService } from './services/whatsapp.service';
+import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 
 interface Step {
   title: string;
@@ -23,7 +24,7 @@ interface Testimonial {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CookieConsentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -33,9 +34,8 @@ export class AppComponent {
   heroImageExists = true;
   vslVideoUrl: SafeResourceUrl | null = null;
 
-  // You can set this later when you have the video URL
-  // Example: https://www.youtube.com/embed/VIDEO_ID or Vimeo URL
-  private videoUrl = ''; // Add your video URL here later
+  // Wistia video URL with autoplay
+  private videoUrl = 'https://fast.wistia.net/embed/iframe/5h81ci5vik?videoFoam=true&autoPlay=true&muted=false';
 
   steps: Step[] = [
     {
@@ -141,8 +141,8 @@ export class AppComponent {
     private sanitizer: DomSanitizer,
     private whatsappService: WhatsAppService
   ) {
-    // When you have the video URL, uncomment and update this:
-    // this.setVideoUrl('YOUR_VIDEO_URL_HERE');
+    // Initialize Wistia video
+    this.setVideoUrl(this.videoUrl);
   }
 
   get isPhoneValid(): boolean {

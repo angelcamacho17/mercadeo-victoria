@@ -1,0 +1,29 @@
+<div class="cookie-banner" *ngIf="showBanner">
+  <div class="cookie-content">
+    <div class="cookie-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="8" cy="10" r="1" fill="currentColor"></circle>
+        <circle cx="16" cy="10" r="1" fill="currentColor"></circle>
+        <circle cx="12" cy="15" r="1" fill="currentColor"></circle>
+        <circle cx="9" cy="13" r="1" fill="currentColor"></circle>
+        <circle cx="15" cy="13" r="1" fill="currentColor"></circle>
+      </svg>
+    </div>
+    <div class="cookie-text">
+      <h3 class="cookie-title">Usamos cookies</h3>
+      <p class="cookie-description">
+        Utilizamos cookies y tecnologías similares para analizar el tráfico del sitio y mejorar tu experiencia.
+        Al aceptar, nos ayudas a entender mejor cómo usas nuestro sitio.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-button cookie-reject" (click)="rejectCookies()">
+        Rechazar
+      </button>
+      <button class="cookie-button cookie-accept" (click)="acceptCookies()">
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>

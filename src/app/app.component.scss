@@ -2,8 +2,8 @@
 
 // Variables
 $primary-color: #000000;
-$accent-color: #2563eb;
-$accent-hover: #1d4ed8;
+$accent-color: #ce2830;
+$accent-hover: #dc98a1;
 $text-primary: #0f172a;
 $text-secondary: #475569;
 $text-light: #64748b;
@@ -143,8 +143,9 @@ button {
   font-size: 15px;
 
   &:hover {
-    background: #333333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #000000;
+    color: white;
+    box-shadow: 0 4px 20px rgba(206, 40, 48, 0.8);
   }
 }
 
@@ -154,11 +155,12 @@ button {
   color: white;
   border-radius: 12px;
   font-size: 18px;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 20px rgba(206, 40, 48, 0.3);
 
   &:hover {
-    background: $accent-hover;
-    box-shadow: 0 6px 30px rgba(37, 99, 235, 0.4);
+    background: #000000;
+    color: white;
+    box-shadow: 0 6px 30px rgba(206, 40, 48, 0.8);
   }
 }
 
@@ -168,12 +170,13 @@ button {
   color: white;
   border-radius: 12px;
   font-size: 20px;
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 30px rgba(206, 40, 48, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: $accent-hover;
-    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+    background: #000000;
+    color: white;
+    box-shadow: 0 12px 40px rgba(206, 40, 48, 0.8);
   }
 }
 
@@ -215,21 +218,28 @@ button {
 
 .hero-image {
   animation: fadeInUp 1.4s ease;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
 }
 
 .image-placeholder {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 16 / 9;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #ce2830 0%, #dc98a1 100%);
+  box-shadow: 0 20px 60px rgba(206, 40, 48, 0.3);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  iframe {
+    border: none;
   }
 
   .placeholder-content {
@@ -271,7 +281,7 @@ button {
 }
 
 .primary-cta {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ce2830 0%, #dc98a1 100%);
   color: white;
 
   .cta-title, .cta-description {
@@ -296,8 +306,9 @@ button {
     color: $primary-color;
 
     &:hover {
-      background: $bg-light;
-      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+      background: #000000;
+      color: white;
+      box-shadow: 0 12px 40px rgba(206, 40, 48, 0.8);
     }
   }
 }
@@ -448,7 +459,7 @@ button {
   justify-content: center;
   font-size: 24px;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 15px rgba(206, 40, 48, 0.4);
 }
 
 .card-icon {
@@ -600,7 +611,7 @@ button {
 .testimonial-result {
   display: inline-block;
   padding: 8px 16px;
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(206, 40, 48, 0.1);
   color: $accent-color;
   border-radius: 8px;
   font-size: 14px;
@@ -781,9 +792,10 @@ button {
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
 
   &:hover:not(:disabled) {
-    background: #20BA5A;
+    background: #000000;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 6px 30px rgba(206, 40, 48, 0.8);
   }
 
   &:active:not(:disabled) {

@@ -1,22 +1,9 @@
-<!-- Header with VSL -->
+<!-- Header -->
 <header class="header">
   <nav class="nav-container">
     <div class="logo">Social Mastery</div>
     <button class="cta-button-small" (click)="scrollToSection('cta')">Inscríbete Ahora</button>
   </nav>
-
-  <!-- VSL Video Section -->
-  <div class="vsl-container" *ngIf="vslVideoUrl">
-    <div class="vsl-wrapper">
-      <iframe
-        [src]="vslVideoUrl"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        class="vsl-video">
-      </iframe>
-    </div>
-  </div>
 </header>
 
 <!-- Hero Section -->
@@ -34,21 +21,14 @@
       </button>
     </div>
     <div class="hero-image">
-      <div class="image-placeholder">
-        <img
-          src="assets/hero-image.png"
-          alt="Marketing Executive"
-          *ngIf="heroImageExists"
-          (error)="heroImageExists = false"
-        />
-        <div class="placeholder-content" *ngIf="!heroImageExists">
-          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-          </svg>
-          <p>Coloca hero-image.png en assets/</p>
-        </div>
+      <div class="image-placeholder" *ngIf="vslVideoUrl">
+        <iframe
+          [src]="vslVideoUrl"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+        </iframe>
       </div>
     </div>
   </div>
@@ -308,3 +288,6 @@
     <p>&copy; {{ currentYear }} Social Mastery. Todos los derechos reservados.</p>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<app-cookie-consent></app-cookie-consent>
