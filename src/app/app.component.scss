@@ -303,7 +303,8 @@ button {
 }
 
 .primary-cta {
-  background: linear-gradient(135deg, #ce2830 0%, #dc98a1 100%);
+  // background: linear-gradient(135deg, #ce2830 0%, #dc98a1 100%);
+  background: $primary-color;
   color: white;
 
   .cta-title, .cta-description {
@@ -435,6 +436,16 @@ button {
   font-family: $font-display;
   letter-spacing: -1.5px;
   line-height: 1.2;
+
+  
+}
+.section-title-light {
+  color: white;
+}
+
+.highlight-title {
+  color: $accent-color;
+  font-size: 1.2em;
 }
 
 .section-subtitle {
@@ -442,6 +453,11 @@ button {
   text-align: center;
   color: $text-secondary;
   margin: 0 0 60px 0;
+
+}
+
+.section-subtitle-light {
+  color: $text-light;
 }
 
 .cards-grid {
@@ -534,12 +550,58 @@ button {
 // Testimonials Section
 .testimonials-section {
   padding: $section-padding 30px;
-  background: $bg-light;
+  background: $primary-color;
 }
 
 .testimonials-container {
   max-width: $container-max;
   margin: 0 auto;
+}
+
+.video-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.video-testimonial {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 177.78%; // 9:16 aspect ratio for shorts
+  height: 0;
+  overflow: hidden;
+  background: #000;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.video-name {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: $text-primary;
+  margin: 0;
+  background: white;
 }
 
 .testimonials-grid {
@@ -1019,6 +1081,10 @@ button {
 
   .cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .video-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .testimonials-grid {

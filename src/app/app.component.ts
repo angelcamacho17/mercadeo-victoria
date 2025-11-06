@@ -22,6 +22,12 @@ interface Testimonial {
   imageExists: boolean;
 }
 
+interface VideoTestimonial {
+  name: string;
+  url: string;
+  embedUrl: any;
+}
+
 @Component({
   selector: 'app-root',
   imports: [CommonModule, FormsModule, CookieConsentComponent],
@@ -67,10 +73,25 @@ export class AppComponent {
         'Sistema de embudos orgánicos de alta conversión',
         'Lanza ofertas irresistibles sin anuncios pagados',
         'Automatiza tu proceso de ventas sin perder autenticidad',
-        'Estrategias para cerrar $10K+ mensualmente'
+        'Estrategias para cerrar $2K+ mensualmente'
       ],
       icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'
     }
+  ];
+
+  videoTestimonials: VideoTestimonial[] = [
+    { name: 'Pedro', url: 'https://youtube.com/shorts/auT9F9M0SlY', embedUrl: null },
+    { name: 'Jessica', url: 'https://youtube.com/shorts/glo8qukZNiE', embedUrl: null },
+    { name: 'Daniel', url: 'https://youtube.com/shorts/-NWfrg1mGwU', embedUrl: null },
+    { name: 'Gaby', url: 'https://youtube.com/shorts/OkD60iebHPg', embedUrl: null },
+    { name: 'Cami', url: 'https://youtube.com/shorts/OwxBIiQzap4', embedUrl: null },
+    { name: 'Karelvis', url: 'https://youtube.com/shorts/ZzYhZzwM1E8', embedUrl: null },
+    { name: 'Ana Victoria', url: 'https://youtube.com/shorts/GJLU-0Md0v8', embedUrl: null },
+    { name: 'Isleyer', url: 'https://youtube.com/shorts/Pq20yR-H59M', embedUrl: null },
+    { name: 'Angel Chacon', url: 'https://youtube.com/shorts/IaFQVbCHq2Q', embedUrl: null },
+    { name: 'Miriangelis', url: 'https://youtube.com/shorts/_o4a9g9H8fg', embedUrl: null },
+    { name: 'Jessica Pereira', url: 'https://youtube.com/shorts/3CW8sdcNlIQ', embedUrl: null },
+    { name: 'Gabriela Martinez', url: 'https://youtube.com/shorts/aHWAGX3foTw', embedUrl: null }
   ];
 
   testimonials: Testimonial[] = [
@@ -143,6 +164,23 @@ export class AppComponent {
   ) {
     // Initialize Wistia video
     this.setVideoUrl(this.videoUrl);
+
+    // Convert YouTube Shorts URLs to embed URLs
+    this.videoTestimonials = this.videoTestimonials.map(video => ({
+      ...video,
+      embedUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
+        this.convertToEmbedUrl(video.url)
+      )
+    }));
+  }
+
+  private convertToEmbedUrl(url: string): string {
+    // Extract video ID from YouTube Shorts URL
+    const match = url.match(/shorts\/([a-zA-Z0-9_-]+)/);
+    if (match && match[1]) {
+      return `https://www.youtube.com/embed/${match[1]}`;
+    }
+    return url;
   }
 
   get isPhoneValid(): boolean {

@@ -11,7 +11,7 @@
   <div class="hero-content">
     <div class="hero-text">
       <h1 class="hero-title">
-        Aprende a Comunicar, Conectar y Vender con Redes Sociales de Manera Orgánica
+        Aprende a Comunicar, Conectar y Vender llevando Redes Sociales de Manera Orgánica
       </h1>
       <p class="hero-subtitle">
         Transforma tu presencia digital en un espacio para crear comunidad fiel y potenciales clientes.
@@ -52,7 +52,7 @@
       </button>
       <div class="cta-details">
         <span class="price">
-          <span class="price-old">$997</span>
+          <span class="price-old">$897</span>
           <span class="price-new">$297</span>
         </span>
         <span class="price-note">Oferta por tiempo limitado</span>
@@ -69,13 +69,13 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span>Garantía 30 días</span>
+        <span>Comunidad exclusiva</span>
       </div>
       <div class="badge">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span>Soporte exclusivo</span>
+        <span>Sistema replicable</span>
       </div>
     </div>
   </div>
@@ -84,7 +84,10 @@
 <!-- Steps Section -->
 <section class="steps-section">
   <div class="steps-container">
-    <h2 class="section-title">3 Pasos para Generar $10K al Mes con Redes Sociales</h2>
+    <h2 class="section-title">3 Pasos para Generar <span class="highlight-title">$2K al Mes</span> llevando 
+      <span><br></span>
+      Redes Sociales
+    </h2>
     <p class="section-subtitle">Un sistema simple y efectivo que cualquiera puede replicar</p>
 
     <div class="cards-grid">
@@ -121,8 +124,24 @@
 <!-- Testimonials Section -->
 <section class="testimonials-section">
   <div class="testimonials-container">
-    <h2 class="section-title">Lo Que Dicen Nuestros Estudiantes</h2>
-    <p class="section-subtitle">Resultados reales de personas reales</p>
+    <h2 class="section-title section-title-light">Lo Que Dicen Nuestros Estudiantes</h2>
+    <p class="section-subtitle section-subtitle-light">Resultados reales de personas reales</p>
+
+    <!-- Video Testimonials Grid -->
+    <div class="video-testimonials-grid">
+      <div class="video-testimonial" *ngFor="let video of videoTestimonials">
+        <div class="video-wrapper">
+          <iframe
+            [src]="video.embedUrl"
+            [title]="video.name + ' testimonial'"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="video-name">{{ video.name }}</p>
+      </div>
+    </div>
 
     <div class="testimonials-grid">
       <div class="testimonial" *ngFor="let testimonial of testimonials">
