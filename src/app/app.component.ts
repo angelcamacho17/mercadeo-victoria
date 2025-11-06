@@ -165,9 +165,8 @@ export class AppComponent {
   }
 
   purchaseCourse(): void {
-    // Add your purchase/checkout URL here
-    // window.location.href = 'YOUR_CHECKOUT_URL';
-    alert('Funcionalidad de compra - Agrega tu URL de checkout aquí');
+    // Redirect to Victoria Poggioli website
+    window.location.href = 'https://victoriapoggioli.com';
   }
 
   sendWhatsAppMessage(): void {
