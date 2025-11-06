@@ -60,7 +60,7 @@ export class CookieConsentComponent implements OnInit {
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "u1z54keqlr");
+      })(window, document, "clarity", "script", "u2036oweky");
     `;
     document.head.appendChild(clarityScript);
 
