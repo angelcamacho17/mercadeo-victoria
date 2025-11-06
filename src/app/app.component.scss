@@ -187,7 +187,7 @@ button {
   margin: 0 auto;
   padding: $section-padding 30px;
   animation: fadeInUp 1s ease;
-  background-image: url('/assets/background-banner.jpg');
+  background-image: url('assets/background-banner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -852,6 +852,11 @@ button {
   align-items: center;
   justify-content: center;
   gap: 12px;
+}
+
+.highlight {
+  font-weight: 600;
+  font-size: 1.2em;
 }
 
 .spinner {
