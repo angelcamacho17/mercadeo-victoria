@@ -165,8 +165,8 @@ export class AppComponent {
   }
 
   purchaseCourse(): void {
-    // Redirect to Victoria Poggioli website
-    window.location.href = 'https://victoriapoggioli.com';
+    // Redirect to Victoria Poggioli course page
+    window.location.href = 'https://victoriapoggioli.com/shop/cursosmmbyvic';
   }
 
   sendWhatsAppMessage(): void {
