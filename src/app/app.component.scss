@@ -316,6 +316,59 @@ button {
   background: $bg-light;
 }
 
+// Bio Section
+.bio-section {
+  padding: $section-padding 30px;
+  background: $bg-white;
+}
+
+.bio-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 60px;
+  align-items: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.bio-image {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bio-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: $text-primary;
+  margin: 0;
+}
+
+.bio-cta {
+  font-size: 20px;
+  font-weight: 700;
+  color: $accent-color;
+  margin: 8px 0 0 0;
+  font-family: $font-display;
+  letter-spacing: -0.5px;
+}
+
 .final-cta {
   background: $primary-color;
   color: white;
@@ -1101,6 +1154,15 @@ button {
 
   .footer-content {
     flex-direction: column;
+  }
+
+  .bio-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bio-image {
+    order: -1;
   }
 }
 

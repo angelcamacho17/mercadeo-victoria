@@ -45,35 +45,32 @@ export class AppComponent {
 
   steps: Step[] = [
     {
-      title: 'Construye tu Fundamento Digital',
+      title: 'Construye tu comunicación digital',
       description: 'Establece una presencia sólida que atraiga a tu audiencia ideal',
       items: [
-        'Define tu nicho y posicionamiento único',
-        'Crea un perfil optimizado que convierte',
-        'Desarrolla tu estrategia de contenido orgánico',
-        'Identifica a tu cliente ideal y sus puntos de dolor'
+        'Define tu sector y temas centrales',
+        'Crea un perfil optimizado que convierta',
+        'Identifica a tu cliente ideal, sus puntos de dolor y deseos',
       ],
       icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'
     },
     {
-      title: 'Domina el Arte de la Conexión',
-      description: 'Construye relaciones auténticas que generan confianza y ventas',
+      title: 'Crea conexión',
+      description: 'Construye una relación auténtica con tu audiencia para generar confianza y ventas',
       items: [
-        'Técnicas de storytelling que venden sin vender',
-        'Crea contenido que genera engagement real',
-        'Sistema de respuestas para convertir comentarios en clientes',
-        'Estrategias de DM que cierran ventas naturalmente'
+        'Pilares de contenido y como usar cada uno',
+        'Contenido que genera engagement real',
+        'Estrategias de contenido para redes sociales',
       ],
       icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75'
     },
     {
-      title: 'Escala y Monetiza',
-      description: 'Transforma tu audiencia en ingresos consistentes y predecibles',
+      title: 'Organización',
+      description: 'Define objetivos claros y replica el sistema que me ha permitido llevar +6 proyectos simultáneos',
       items: [
-        'Sistema de embudos orgánicos de alta conversión',
-        'Lanza ofertas irresistibles sin anuncios pagados',
-        'Automatiza tu proceso de ventas sin perder autenticidad',
-        'Estrategias para cerrar $2K+ mensualmente'
+        'Sistemas de productividad y organización en Notion',
+        'Plantillas replicables para contenido, historias y metas personales',
+        'Analiza y trabaja en función a resultados de meses anteriores',
       ],
       icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'
     }
