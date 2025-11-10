@@ -79,7 +79,7 @@ export class AppComponent {
   videoTestimonials: VideoTestimonial[] = [
     { name: 'Pedro', url: 'https://youtube.com/shorts/auT9F9M0SlY', embedUrl: null },
     { name: 'Jessica', url: 'https://youtube.com/shorts/glo8qukZNiE', embedUrl: null },
-    { name: 'Daniel', url: 'https://youtube.com/shorts/-NWfrg1mGwU', embedUrl: null },
+    { name: 'Daniel', url: 'https://youtube.com/shorts/U-kC-_L9LMQ', embedUrl: null },
     { name: 'Gabriela', url: 'https://youtube.com/shorts/aHWAGX3foTw', embedUrl: null }
   ];
 
