@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { WhatsAppService } from './services/whatsapp.service';
+import { EmailService } from './services/email.service';
 import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 
 interface Step {
@@ -147,9 +148,22 @@ export class AppComponent {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
 
+  // Email Form State
+  email: string = '';
+  userName: string = '';
+  isEmailSubmitting: boolean = false;
+  showEmailSuccessMessage: boolean = false;
+  showEmailErrorMessage: boolean = false;
+  emailErrorMessage: string = '';
+
+  // Feature flags (set to false to hide sections)
+  showWhatsAppSection: boolean = false;
+  showEmailSection: boolean = false;
+
   constructor(
     private sanitizer: DomSanitizer,
-    private whatsappService: WhatsAppService
+    private whatsappService: WhatsAppService,
+    private emailService: EmailService
   ) {
     // Initialize Wistia video
     this.setVideoUrl(this.videoUrl);
@@ -176,6 +190,12 @@ export class AppComponent {
     // Simple validation: must start with + and have at least 10 digits
     const phoneRegex = /^\+\d{10,}$/;
     return phoneRegex.test(this.phoneNumber.replace(/\s/g, ''));
+  }
+
+  get isEmailValid(): boolean {
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(this.email);
   }
 
   setVideoUrl(url: string): void {
@@ -232,6 +252,48 @@ export class AppComponent {
         // Auto-hide error message after 7 seconds
         setTimeout(() => {
           this.showErrorMessage = false;
+        }, 7000);
+      }
+    });
+  }
+
+  sendEmail(): void {
+    if (!this.isEmailValid || this.isEmailSubmitting) {
+      return;
+    }
+
+    // Reset messages
+    this.showEmailSuccessMessage = false;
+    this.showEmailErrorMessage = false;
+    this.emailErrorMessage = '';
+
+    // Set loading state
+    this.isEmailSubmitting = true;
+
+    // Call the service
+    this.emailService.sendEmail({
+      email: this.email,
+      name: this.userName || undefined,
+    }).subscribe({
+      next: (response) => {
+        this.isEmailSubmitting = false;
+        this.showEmailSuccessMessage = true;
+        this.email = ''; // Clear the form
+        this.userName = '';
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          this.showEmailSuccessMessage = false;
+        }, 5000);
+      },
+      error: (error) => {
+        this.isEmailSubmitting = false;
+        this.showEmailErrorMessage = true;
+        this.emailErrorMessage = error.message || 'Ocurrió un error al enviar el email';
+
+        // Auto-hide error message after 7 seconds
+        setTimeout(() => {
+          this.showEmailErrorMessage = false;
         }, 7000);
       }
     });

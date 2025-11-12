@@ -195,7 +195,7 @@
 </section>
 
 <!-- WhatsApp Lead Capture Section -->
-<!-- <section class="whatsapp-section" id="whatsapp">
+<section class="whatsapp-section" id="whatsapp" *ngIf="showWhatsAppSection">
   <div class="whatsapp-container">
     <div class="whatsapp-content">
       <div class="whatsapp-hero">
@@ -293,7 +293,124 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>
+
+<!-- Email Lead Capture Section -->
+<section class="email-section" id="email" *ngIf="showEmailSection">
+  <div class="email-container">
+    <div class="email-content">
+      <div class="email-hero">
+        <div class="email-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h2 class="email-title">¡Recibe Contenido GRATIS por Email!</h2>
+        <p class="email-subtitle">Déjanos tu email y te enviaremos un PDF con estrategias exclusivas para redes sociales</p>
+      </div>
+
+      <div class="email-form-wrapper">
+        <form class="email-form" (ngSubmit)="sendEmail()" #emailForm="ngForm">
+          <div class="form-group">
+            <label for="userName" class="form-label">Nombre (opcional)</label>
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              [(ngModel)]="userName"
+              placeholder="Tu nombre"
+              class="form-input"
+              [disabled]="isEmailSubmitting"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="tu@email.com"
+              class="form-input"
+              [class.input-error]="!isEmailValid && email.length > 0"
+              [disabled]="isEmailSubmitting"
+              required
+            />
+            <p class="form-error" *ngIf="!isEmailValid && email.length > 0">
+              Por favor ingresa un email válido
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="email-submit-button"
+            [disabled]="!isEmailValid || isEmailSubmitting"
+            [class.button-loading]="isEmailSubmitting"
+          >
+            <span *ngIf="!isEmailSubmitting" class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Enviar por Email
+            </span>
+            <span *ngIf="isEmailSubmitting" class="button-loading-text">
+              <span class="spinner"></span>
+              Enviando...
+            </span>
+          </button>
+        </form>
+
+        <!-- Success Message -->
+        <div class="message-box success-message" *ngIf="showEmailSuccessMessage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <div>
+            <p class="message-title">¡Email enviado exitosamente!</p>
+            <p class="message-text">Revisa tu bandeja de entrada en los próximos minutos</p>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="message-box error-message" *ngIf="showEmailErrorMessage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div>
+            <p class="message-title">Error al enviar</p>
+            <p class="message-text">{{ emailErrorMessage }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="email-benefits">
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>100% Gratis</span>
+        </div>
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Contenido exclusivo</span>
+        </div>
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Sin spam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Final CTA Section -->
 <section class="cta-section final-cta">

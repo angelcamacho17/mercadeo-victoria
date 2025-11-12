@@ -755,6 +755,144 @@ button {
   font-weight: 600;
 }
 
+// Email Section
+.email-section {
+  padding: $section-padding 30px;
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+.email-container {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.email-content {
+  animation: fadeInUp 0.8s ease;
+}
+
+.email-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.email-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+
+  svg {
+    color: white;
+  }
+}
+
+.email-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 20px 0;
+  font-family: $font-display;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.email-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.email-form-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+}
+
+.email-form {
+  margin-bottom: 20px;
+}
+
+.email-submit-button {
+  width: 100%;
+  padding: 18px 32px;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: $font-primary;
+  box-shadow: 0 4px 20px rgba(74, 144, 226, 0.4);
+
+  &:hover:not(:disabled) {
+    background: #000000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(206, 40, 48, 0.8);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: $text-light;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+  &.button-loading {
+    position: relative;
+  }
+}
+
+.email-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
 // WhatsApp Section
 .whatsapp-section {
   padding: $section-padding 30px;
@@ -1247,6 +1385,24 @@ button {
   }
 
   .whatsapp-benefits {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .email-title {
+    font-size: 32px;
+  }
+
+  .email-subtitle {
+    font-size: 16px;
+  }
+
+  .email-form-wrapper {
+    padding: 28px 20px;
+  }
+
+  .email-benefits {
     flex-direction: column;
     gap: 16px;
     align-items: center;
