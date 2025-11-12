@@ -158,7 +158,7 @@ export class AppComponent {
 
   // Feature flags (set to false to hide sections)
   showWhatsAppSection: boolean = false;
-  showEmailSection: boolean = false;
+  showEmailSection: boolean = true;
 
   constructor(
     private sanitizer: DomSanitizer,
