@@ -313,7 +313,7 @@
       <div class="email-form-wrapper">
         <form class="email-form" (ngSubmit)="sendEmail()" #emailForm="ngForm">
           <div class="form-group">
-            <label for="userName" class="form-label">Nombre (opcional)</label>
+            <label for="userName" class="form-label">Nombre</label>
             <input
               type="text"
               id="userName"
@@ -322,6 +322,7 @@
               placeholder="Tu nombre"
               class="form-input"
               [disabled]="isEmailSubmitting"
+              required
             />
           </div>
 
@@ -346,7 +347,7 @@
           <button
             type="submit"
             class="email-submit-button"
-            [disabled]="!isEmailValid || isEmailSubmitting"
+            [disabled]="(!isEmailValid&&userName.length > 0 && email.length > 0) || isEmailSubmitting"
             [class.button-loading]="isEmailSubmitting"
           >
             <span *ngIf="!isEmailSubmitting" class="button-content">
