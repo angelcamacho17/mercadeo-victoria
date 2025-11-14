@@ -1174,6 +1174,20 @@ button {
   opacity: 0.9;
 }
 
+.message-warning {
+  font-size: 13px;
+  margin: 12px 0 0 0;
+  padding: 12px;
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid #f59e0b;
+  border-radius: 4px;
+  line-height: 1.5;
+
+  strong {
+    color: #f59e0b;
+  }
+}
+
 .whatsapp-benefits {
   display: flex;
   justify-content: center;
