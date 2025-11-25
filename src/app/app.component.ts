@@ -264,6 +264,15 @@ export class AppComponent {
     window.location.href = 'https://victoriapoggioli.com/shop/cursosmmbyvic';
   }
 
+  goToInstaVideo() {
+    this.trackEvent('ViewContent', {
+      content_name: `Button Click: Secondary CTA - Conoce de mi`,
+      content_category: 'Button Interaction',
+      content_type: 'Purchase Button'
+    });
+    window.location.href = 'https://www.instagram.com/reel/DKDVT9VOQH_/?igsh=MW9qNm84dDV5N25qZw==';
+  }
+
   sendWhatsAppMessage(): void {
     if (!this.isPhoneValid || this.isSubmitting) {
       return;
