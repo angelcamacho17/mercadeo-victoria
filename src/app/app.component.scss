@@ -1,5 +1,3 @@
-// Modern, Minimalist, High-End Styling
-
 // Variables
 $primary-color: #000000;
 $accent-color: #ce2830;
@@ -13,16 +11,11 @@ $border-color: #e2e8f0;
 $success-color: #10b981;
 $warning-color: #f59e0b;
 
-// Typography
-$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-$font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-// Spacing
+$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-display: 'Inter', -apple-system, sans-serif;
 $container-max: 1200px;
 $section-padding: 100px;
 $section-padding-mobile: 60px;
-
-// Animations
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -51,8 +44,6 @@ $section-padding-mobile: 60px;
     opacity: 0.5;
   }
 }
-
-// Global Styles
 :host {
   display: block;
   font-family: $font-primary;
@@ -63,8 +54,6 @@ $section-padding-mobile: 60px;
 * {
   box-sizing: border-box;
 }
-
-// Header
 .header {
   position: sticky;
   top: 0;
@@ -91,8 +80,6 @@ $section-padding-mobile: 60px;
   letter-spacing: -0.5px;
   color: $primary-color;
 }
-
-// VSL Container
 .vsl-container {
   max-width: 900px;
   margin: 40px auto;
@@ -116,8 +103,6 @@ $section-padding-mobile: 60px;
   width: 100%;
   height: 100%;
 }
-
-// Buttons
 button {
   font-family: $font-primary;
   cursor: pointer;
@@ -179,8 +164,6 @@ button {
     box-shadow: 0 12px 40px rgba(206, 40, 48, 0.8);
   }
 }
-
-// Hero Section
 .hero-section {
   position: relative;
   max-width: 100%;
@@ -295,15 +278,187 @@ button {
     color: $text-light;
   }
 }
+.curso-section {
+  padding: $section-padding 30px;
+  background: $primary-color;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 
-// CTA Sections
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    background: rgba(206, 40, 48, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  &::before {
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+  }
+  &::after {
+    bottom: -40%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(206, 40, 48, 0.08);
+  }
+}
+
+.curso-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.curso-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  font-family: $font-display;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+  color: white;
+}
+
+.curso-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 50px 0;
+  letter-spacing: -0.5px;
+}
+
+.curso-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.curso-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.curso-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid $accent-color;
+  transition: all 0.3s ease;
+
+  &.curso-bullet-clickable {
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(12px);
+      box-shadow: 0 6px 25px rgba(206, 40, 48, 0.4);
+      border-left-width: 6px;
+    }
+
+    &:active {
+      transform: translateX(8px);
+      box-shadow: 0 4px 20px rgba(206, 40, 48, 0.5);
+    }
+  }
+}
+
+.curso-bullet-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: $accent-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: white;
+  }
+}
+
+.curso-bullet-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.curso-bullet-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.4;
+}
+
+.curso-bullet-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: $accent-color;
+  flex-shrink: 0;
+}
+
+.curso-bullet-emoji {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.curso-image-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.curso-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.curso-students {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 40px 0;
+  letter-spacing: -0.5px;
+  font-family: $font-display;
+}
+
+.curso-section {
+  .cta-button-large {
+    background: white;
+    color: $primary-color;
+
+    &:hover {
+      background: $accent-color;
+      color: white;
+      box-shadow: 0 12px 40px rgba(206, 40, 48, 0.6);
+    }
+  }
+}
 .cta-section {
   padding: $section-padding 30px;
   text-align: center;
 }
 
 .primary-cta {
-  // background: linear-gradient(135deg, #ce2830 0%, #dc98a1 100%);
   background: $primary-color;
   color: white;
 
@@ -315,8 +470,6 @@ button {
 .secondary-cta {
   background: $bg-light;
 }
-
-// Bio Section
 .bio-section {
   padding: $section-padding 30px;
   background: $bg-white;
@@ -469,8 +622,6 @@ button {
     flex-shrink: 0;
   }
 }
-
-// Steps Section
 .steps-section {
   padding: $section-padding 30px;
   background: $bg-white;
@@ -489,8 +640,6 @@ button {
   font-family: $font-display;
   letter-spacing: -1.5px;
   line-height: 1.2;
-
-  
 }
 .section-title-light {
   color: white;
@@ -506,7 +655,6 @@ button {
   text-align: center;
   color: $text-secondary;
   margin: 0 0 60px 0;
-
 }
 
 .section-subtitle-light {
@@ -599,8 +747,6 @@ button {
     }
   }
 }
-
-// Testimonials Section
 .testimonials-section {
   padding: $section-padding 30px;
   background: $primary-color;
@@ -754,36 +900,30 @@ button {
   font-size: 14px;
   font-weight: 600;
 }
-
-// Email Section
 .email-section {
   padding: $section-padding 30px;
   background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
   position: relative;
   overflow: hidden;
 
-  &::before {
+  &::before, &::after {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     pointer-events: none;
   }
-
+  &::before {
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+  }
   &::after {
-    content: '';
-    position: absolute;
     bottom: -30%;
     left: -5%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
   }
 }
 
@@ -892,36 +1032,30 @@ button {
   gap: 32px;
   flex-wrap: wrap;
 }
-
-// WhatsApp Section
 .whatsapp-section {
   padding: $section-padding 30px;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   position: relative;
   overflow: hidden;
 
-  &::before {
+  &::before, &::after {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     pointer-events: none;
   }
-
+  &::before {
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+  }
   &::after {
-    content: '';
-    position: absolute;
     bottom: -30%;
     left: -5%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
   }
 }
 
@@ -1210,8 +1344,6 @@ button {
     padding: 4px;
   }
 }
-
-// Footer
 .footer {
   background: $primary-color;
   color: white;
@@ -1268,8 +1400,6 @@ button {
     font-size: 14px;
   }
 }
-
-// Responsive Design
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -1315,6 +1445,35 @@ button {
 
   .bio-image {
     order: -1;
+  }
+
+  .curso-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .curso-title {
+    font-size: 36px;
+  }
+
+  .curso-subtitle {
+    font-size: 20px;
+  }
+
+  .curso-students {
+    font-size: 24px;
+  }
+
+  .curso-bullet-label {
+    font-size: 18px;
+  }
+
+  .curso-bullet-price {
+    font-size: 24px;
+  }
+
+  .curso-bullet-emoji {
+    font-size: 28px;
   }
 }
 
@@ -1420,5 +1579,63 @@ button {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+  }
+
+  .curso-section {
+    padding: $section-padding-mobile 20px;
+  }
+
+  .curso-content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .curso-bullets {
+    gap: 16px;
+  }
+
+  .curso-bullet-item {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .curso-bullet-icon {
+    width: 28px;
+    height: 28px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .curso-bullet-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .curso-title {
+    font-size: 28px;
+  }
+
+  .curso-subtitle {
+    font-size: 18px;
+  }
+
+  .curso-students {
+    font-size: 20px;
+  }
+
+  .curso-bullet-label {
+    font-size: 16px;
+  }
+
+  .curso-bullet-price {
+    font-size: 22px;
+  }
+
+  .curso-bullet-emoji {
+    font-size: 28px;
   }
 }

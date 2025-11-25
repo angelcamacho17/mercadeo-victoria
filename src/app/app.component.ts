@@ -177,6 +177,13 @@ export class AppComponent {
     }));
   }
 
+  // Meta Pixel tracking helper
+  private trackEvent(eventName: string, params?: any): void {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', eventName, params);
+    }
+  }
+
   private convertToEmbedUrl(url: string): string {
     // Extract video ID from YouTube Shorts URL
     const match = url.match(/shorts\/([a-zA-Z0-9_-]+)/);
@@ -204,14 +211,55 @@ export class AppComponent {
     }
   }
 
-  scrollToSection(sectionId: string): void {
+  scrollToSection(sectionId: string, buttonLocation?: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
+      // Track button click before scrolling
+      if (buttonLocation) {
+        this.trackEvent('ViewContent', {
+          content_name: `Button Click: ${buttonLocation}`,
+          content_category: 'Button Interaction',
+          content_type: 'CTA Button'
+        });
+      }
+
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Track scroll to section
+      this.trackEvent('ViewContent', {
+        content_name: `Section: ${sectionId}`,
+        content_category: 'Navigation'
+      });
     }
   }
 
-  purchaseCourse(): void {
+  purchaseCourse(buttonLocation?: string): void {
+    // Track button click with location
+    if (buttonLocation) {
+      this.trackEvent('ViewContent', {
+        content_name: `Button Click: ${buttonLocation}`,
+        content_category: 'Button Interaction',
+        content_type: 'Purchase Button'
+      });
+    }
+
+    // Track as Lead (intention to purchase)
+    this.trackEvent('Lead', {
+      content_name: 'Purchase Button Click',
+      content_category: 'Lead Generation',
+      method: 'Purchase CTA',
+      button_location: buttonLocation || 'Unknown'
+    });
+
+    // Track purchase intent
+    this.trackEvent('InitiateCheckout', {
+      content_name: 'Social Media Marketing Course',
+      content_category: 'Course',
+      value: 297,
+      currency: 'USD',
+      button_location: buttonLocation || 'Unknown'
+    });
+
     // Redirect to Victoria Poggioli course page
     window.location.href = 'https://victoriapoggioli.com/shop/cursosmmbyvic';
   }
@@ -237,6 +285,14 @@ export class AppComponent {
       next: (response) => {
         this.isSubmitting = false;
         this.showSuccessMessage = true;
+
+        // Track successful lead via WhatsApp
+        this.trackEvent('Lead', {
+          content_name: 'WhatsApp Lead Capture',
+          content_category: 'Lead Generation',
+          method: 'WhatsApp'
+        });
+
         this.phoneNumber = ''; // Clear the form
 
         // Auto-hide success message after 5 seconds
@@ -270,6 +326,12 @@ export class AppComponent {
     // Set loading state
     this.isEmailSubmitting = true;
 
+    // Track email form start
+    this.trackEvent('Contact', {
+      content_name: 'Email Form Started',
+      content_category: 'Lead Generation'
+    });
+
     // Call the service
     this.emailService.sendEmail({
       email: this.email,
@@ -278,6 +340,20 @@ export class AppComponent {
       next: (response) => {
         this.isEmailSubmitting = false;
         this.showEmailSuccessMessage = true;
+
+        // Track successful lead via Email
+        this.trackEvent('Lead', {
+          content_name: 'Email Lead Capture',
+          content_category: 'Lead Generation',
+          method: 'Email'
+        });
+
+        // Track as CompleteRegistration for better optimization
+        this.trackEvent('CompleteRegistration', {
+          content_name: 'Free Content Registration',
+          status: 'success'
+        });
+
         this.email = ''; // Clear the form
         this.userName = '';
 

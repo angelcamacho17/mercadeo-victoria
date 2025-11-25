@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="nav-container">
     <div class="logo">Social Media Marketing</div>
-    <button class="cta-button-small" (click)="scrollToSection('cta')">Inscríbete Ahora</button>
+    <button class="cta-button-small" (click)="scrollToSection('cta', 'Header - Inscríbete Ahora')">Inscríbete Ahora</button>
   </nav>
 </header>
 
@@ -16,7 +16,7 @@
       <p class="hero-subtitle">
         Transforma tu presencia digital en un espacio para crear comunidad fiel y potenciales clientes.
       </p>
-      <button class="cta-button-primary" (click)="scrollToSection('cta')">
+      <button class="cta-button-primary" (click)="scrollToSection('cta', 'Hero - Comenzar Ahora')">
         Comenzar Ahora
       </button>
     </div>
@@ -47,7 +47,7 @@
        <span class="highlight">+150 estudiantes</span> generando <span class="highlight">resultados reales</span> con estrategias probadas
     </p>
     <div class="cta-buttons">
-      <button class="cta-button-large" (click)="purchaseCourse()">
+      <button class="cta-button-large" (click)="purchaseCourse('Primary CTA - Acceder al Curso Completo')">
         Acceder al Curso Completo
       </button>
       <div class="cta-details">
@@ -115,9 +115,99 @@
     <p class="cta-description">
       No dejes que otro mes pase sin tomar acción. Tu transformación digital comienza hoy.
     </p>
-    <button class="cta-button-large" (click)="purchaseCourse()">
+    <button class="cta-button-large" (click)="purchaseCourse('Secondary CTA - Transformar Mi Negocio')">
       Sí, Quiero Transformar Mi Negocio
     </button>
+  </div>
+</section>
+
+<!-- Curso De Social Media Section -->
+<section class="curso-section">
+  <div class="curso-container">
+    <h2 class="curso-title">Curso De Social Media</h2>
+    <p class="curso-subtitle">Incluye</p>
+
+    <div class="curso-content-grid">
+      <!-- Bullet Points -->
+      <div class="curso-bullets">
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - +6hrs de contenido')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">+6hrs de contenido</span>
+            <span class="curso-bullet-price">$397</span>
+          </div>
+        </div>
+
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - 10 plantillas de trabajo')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">10 plantillas de trabajo</span>
+            <span class="curso-bullet-price">$202</span>
+          </div>
+        </div>
+
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - Estructura en Notion')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">Estructura en Notion</span>
+            <span class="curso-bullet-price">$297</span>
+          </div>
+        </div>
+
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - Claves en vivo')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">Claves en vivo</span>
+            <span class="curso-bullet-emoji">❤️</span>
+          </div>
+        </div>
+
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - Comunidad exclusiva')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">Comunidad exclusiva</span>
+            <span class="curso-bullet-emoji">❤️</span>
+          </div>
+        </div>
+
+        <div class="curso-bullet-item curso-bullet-clickable" (click)="purchaseCourse('Curso Bullet - Oportunidad de trabajo')">
+          <div class="curso-bullet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="curso-bullet-content">
+            <span class="curso-bullet-label">Oportunidad de trabajo como Social</span>
+            <span class="curso-bullet-emoji">🎁</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="curso-image-wrapper">
+        <img src="/GOOGLE_ONE_TAP_SETUP.png" alt="Curso Social Media" class="curso-image" />
+      </div>
+    </div>
   </div>
 </section>
 
@@ -421,7 +511,7 @@
     <p class="cta-description">
       Comienza tu viaje hacia la libertad financiera y el éxito en redes sociales
     </p>
-    <button class="cta-button-large" (click)="purchaseCourse()">
+    <button class="cta-button-large" (click)="purchaseCourse('Final CTA - Inscribirme Ahora')">
       Inscribirme Ahora
     </button>
   </div>
