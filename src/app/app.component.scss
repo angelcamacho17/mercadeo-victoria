@@ -17,32 +17,16 @@ $container-max: 1200px;
 $section-padding: 100px;
 $section-padding-mobile: 60px;
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
 }
-
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
 }
-
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.5;}
 }
 :host {
   display: block;
@@ -89,7 +73,7 @@ $section-padding-mobile: 60px;
 
 .vsl-wrapper {
   position: relative;
-  padding-bottom: 56.25%; // 16:9 aspect ratio
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 16px;
@@ -285,26 +269,9 @@ button {
   position: relative;
   overflow: hidden;
 
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    background: rgba(206, 40, 48, 0.1);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  &::before {
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-  }
-  &::after {
-    bottom: -40%;
-    left: -10%;
-    width: 500px;
-    height: 500px;
-    background: rgba(206, 40, 48, 0.08);
-  }
+  &::before, &::after {content: ''; position: absolute; background: rgba(206, 40, 48, 0.1); border-radius: 50%; pointer-events: none;}
+  &::before {top: -50%; right: -10%; width: 600px; height: 600px;}
+  &::after {bottom: -40%; left: -10%; width: 500px; height: 500px; background: rgba(206, 40, 48, 0.08);}
 }
 
 .curso-container {
@@ -512,16 +479,6 @@ button {
   color: $text-primary;
   margin: 0;
 }
-
-.bio-cta {
-  font-size: 20px;
-  font-weight: 700;
-  color: $accent-color;
-  margin: 8px 0 0 0;
-  font-family: $font-display;
-  letter-spacing: -0.5px;
-}
-
 .final-cta {
   background: $primary-color;
   color: white;
@@ -779,18 +736,11 @@ button {
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 177.78%; // 9:16 aspect ratio for shorts
+  padding-bottom: 177.78%;
   height: 0;
   overflow: hidden;
   background: #000;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+  iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
 }
 
 .video-name {
@@ -906,25 +856,9 @@ button {
   position: relative;
   overflow: hidden;
 
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  &::before {
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-  }
-  &::after {
-    bottom: -30%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-  }
+  &::before, &::after {content: ''; position: absolute; background: rgba(255, 255, 255, 0.05); border-radius: 50%; pointer-events: none;}
+  &::before {top: -50%; right: -10%; width: 500px; height: 500px;}
+  &::after {bottom: -30%; left: -5%; width: 400px; height: 400px;}
 }
 
 .email-container {
@@ -1038,25 +972,9 @@ button {
   position: relative;
   overflow: hidden;
 
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  &::before {
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-  }
-  &::after {
-    bottom: -30%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-  }
+  &::before, &::after {content: ''; position: absolute; background: rgba(255, 255, 255, 0.05); border-radius: 50%; pointer-events: none;}
+  &::before {top: -50%; right: -10%; width: 500px; height: 500px;}
+  &::after {bottom: -30%; left: -5%; width: 400px; height: 400px;}
 }
 
 .whatsapp-container {
@@ -1256,11 +1174,7 @@ button {
   animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
+@keyframes spin {to {transform: rotate(360deg);}}
 
 .message-box {
   display: flex;
