@@ -133,6 +133,34 @@ button {
   }
 }
 
+.cta-button-whatsapp {
+  padding: 18px 40px;
+  background: #25D366;
+  color: white;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: #128C7E;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+
 .cta-button-large {
   padding: 22px 50px;
   background: $accent-color;
@@ -201,6 +229,13 @@ button {
   color: $text-secondary;
   margin: 0 0 40px 0;
   line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-image {
@@ -523,6 +558,14 @@ button {
 
 .cta-buttons {
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.cta-whatsapp-purchase {
+  margin-top: 8px;
 }
 
 .cta-details {
@@ -1434,6 +1477,22 @@ button {
   .cta-button-primary {
     padding: 16px 32px;
     font-size: 16px;
+  }
+
+  .cta-button-whatsapp {
+    padding: 16px 28px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+
+    .cta-button-primary {
+      width: 100%;
+    }
   }
 
   .cta-button-large {

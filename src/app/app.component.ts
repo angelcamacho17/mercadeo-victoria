@@ -273,6 +273,52 @@ export class AppComponent {
     window.location.href = 'https://www.instagram.com/reel/DKDVT9VOQH_/?igsh=MW9qNm84dDV5N25qZw==';
   }
 
+  openWhatsApp(): void {
+    // Track WhatsApp button click
+    this.trackEvent('ViewContent', {
+      content_name: 'Button Click: Hero - WhatsApp Chat',
+      content_category: 'Button Interaction',
+      content_type: 'WhatsApp Button'
+    });
+
+    this.trackEvent('Contact', {
+      content_name: 'WhatsApp Chat Initiated',
+      content_category: 'Lead Generation',
+      method: 'WhatsApp Direct'
+    });
+
+    // WhatsApp number and pre-filled message
+    const phoneNumber = '5214421166803'; // Replace with your actual WhatsApp number
+    const message = encodeURIComponent('¡Hola! Me interesa el curso de Social Media Marketing. ¿Podrías darme más información?');
+
+    // Open WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  }
+
+  openWhatsAppPurchase(): void {
+    // Track WhatsApp purchase button click
+    this.trackEvent('ViewContent', {
+      content_name: 'Button Click: CTA - WhatsApp Purchase',
+      content_category: 'Button Interaction',
+      content_type: 'WhatsApp Purchase Button'
+    });
+
+    this.trackEvent('InitiateCheckout', {
+      content_name: 'WhatsApp Purchase Intent',
+      content_category: 'Purchase',
+      method: 'WhatsApp',
+      value: 297,
+      currency: 'USD'
+    });
+
+    // WhatsApp number and pre-filled purchase message
+    const phoneNumber = '5214421166803';
+    const message = encodeURIComponent('¡Hola! Quiero comprar el Curso de Social Media Marketing por $297. ¿Cómo procedo con el pago?');
+
+    // Open WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  }
+
   sendWhatsAppMessage(): void {
     if (!this.isPhoneValid || this.isSubmitting) {
       return;
