@@ -288,7 +288,7 @@ export class AppComponent {
     });
 
     // WhatsApp number and pre-filled message
-    const phoneNumber = '5214421166803'; // Replace with your actual WhatsApp number
+    const phoneNumber = '573052203878'; // Replace with your actual WhatsApp number
     const message = encodeURIComponent('¡Hola! Me interesa el curso de Social Media Marketing. ¿Podrías darme más información?');
 
     // Open WhatsApp
